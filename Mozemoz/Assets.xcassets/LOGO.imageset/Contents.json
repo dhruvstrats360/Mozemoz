@@ -1,0 +1,17 @@
+{
+  "images" : [
+    {
+      "filename" : "MOZEMOZ_LOGO_ 1X.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true,
+    "preserves-vector-representation" : true,
+    "template-rendering-intent" : "original"
+  }
+}
