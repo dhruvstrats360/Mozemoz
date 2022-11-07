@@ -1,10 +1,16 @@
 # platform specifies which version were you working on.
-platform :ios, '15.2'
+platform :ios, '16.1'
 target 'Mozemoz' do
   use_frameworks!
-  
+  # Pods for Firebase
   pod 'Firebase/Core'
-  pod 'Firebase/Auth','~> 8.0'
-  pod 'GoogleSignIn', '~> 4.4.0'
+  pod 'Firebase/Auth'
+  # Pods for Google Sign In.
+  pod 'GoogleSignIn'
+  # Pods for Facebook Sign In.
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
  
 end
+

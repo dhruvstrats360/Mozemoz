@@ -11,9 +11,9 @@ class HomeNavController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vc = SignInViewController()
-        vc.modalPresentationStyle = .fullScreen
-        performSegue(withIdentifier: "SignInpopUpViewController1", sender: self)
+//        let vc = SignInPageViewController()
+//        vc.modalPresentationStyle = .fullScreen
+//        performSegue(withIdentifier: "SignInPageViewController", sender: self)
     }
 //    override func viewWillAppear(_ animated: Bool) {
 //        let vc = UIViewController()
