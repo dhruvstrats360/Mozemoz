@@ -10,7 +10,6 @@
 		8F2C3E382913CE4D006284DB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C3E372913CE4D006284DB /* DetailsViewController.swift */; };
 		8F2C3E3A2913D365006284DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C3E392913D365006284DB /* GoogleService-Info.plist */; };
 		8F2C3E5D2914DCA5006284DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C3E5C2914DCA5006284DB /* Main.storyboard */; };
-		8F5D7EDE28F03E7700D9FBCA /* Pods_Mozemoz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3954B21891C8028488B32 /* Pods_Mozemoz.framework */; };
 		8F6E092828E16C8900AD5E11 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E092728E16C8900AD5E11 /* TabBarViewController.swift */; };
 		8F6E092A28E1B4B200AD5E11 /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E092928E1B4B200AD5E11 /* SignInPageViewController.swift */; };
 		8F6E092F28E1BA6100AD5E11 /* SignInNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E092E28E1BA6100AD5E11 /* SignInNavController.swift */; };
@@ -27,6 +26,7 @@
 		8F72535828DEF5860016E081 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72535728DEF5860016E081 /* SceneDelegate.swift */; };
 		8F72535F28DEF5890016E081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F72535E28DEF5890016E081 /* Assets.xcassets */; };
 		8F72536228DEF5890016E081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F72536028DEF5890016E081 /* LaunchScreen.storyboard */; };
+		8FBC7AA32919080C001F81FF /* Pods_Mozemoz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3954B21891C8028488B32 /* Pods_Mozemoz.framework */; };
 		8FC7C26D28E56A8300B1657F /* PhoneNumLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC7C26C28E56A8300B1657F /* PhoneNumLogInViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F5D7EDE28F03E7700D9FBCA /* Pods_Mozemoz.framework in Frameworks */,
+				8FBC7AA32919080C001F81FF /* Pods_Mozemoz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +178,7 @@
 				8F72534E28DEF5860016E081 /* Sources */,
 				8F72534F28DEF5860016E081 /* Frameworks */,
 				8F72535028DEF5860016E081 /* Resources */,
-				BA2EA92D377759327940380E /* [CP] Embed Pods Frameworks */,
+				CCC02048C4F19CB95965CEBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,6 +213,9 @@
 				Base,
 			);
 			mainGroup = 8F72534928DEF5860016E081;
+			packageReferences = (
+				8FBC7A8A2918E6F3001F81FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 8F72534928DEF5860016E081;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +262,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA2EA92D377759327940380E /* [CP] Embed Pods Frameworks */ = {
+		CCC02048C4F19CB95965CEBC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -448,8 +451,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,8 +486,11 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +527,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8FBC7A8A2918E6F3001F81FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 8F72534A28DEF5860016E081 /* Project object */;
 }

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import GoogleUtilities
 import FacebookCore
 import FacebookShare
 import FacebookLogin
@@ -22,8 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // initiate Google Sign-In
         
+        
         return true
     }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -40,8 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: phone number login
     func application(_ app: UIApplication, open url: URL, options option: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         
-        return Auth.auth().canHandle(url)
+        if Auth.auth().canHandle(url){
+            // for phone auth
+            return Auth.auth().canHandle(url)
+        }
+        else{
+            // for google auth
+            return GIDSignIn.sharedInstance.handle(url)
+        }
     }
-
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
 class SignInPageViewController: UIViewController {
 
@@ -45,7 +46,33 @@ class SignInPageViewController: UIViewController {
     }
     // MARK: Google Signin
     @IBAction func googleSignIn_intiate(_ sender: UIButton) {
-        
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+
+          if let error = error {
+            // ...
+              print(error.localizedDescription)
+          }
+
+          guard
+            let authentication = user?.authentication,
+            let idToken = authentication.idToken
+          else {
+              print("Else")
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+            print("Creadentials are printed\(credential)")
+            navigationController?.pushViewController(DetailsViewController(), animated: true)
+          
+        }
 //        let auth = Auth.auth().isSignIn(withEmailLink: "1234@gmail.com")
 //        print(auth)
 //        func sign(_ signIn: GIDSignIn!,
