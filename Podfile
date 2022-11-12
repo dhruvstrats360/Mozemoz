@@ -11,8 +11,12 @@ target 'Mozemoz' do
  # Pods for Google Sign In.
  pod 'GoogleSignIn'
  # Pods for Facebook Sign In.
- pod 'FacebookCore'
- pod 'FacebookLogin'
- pod 'FacebookShare'
+# pod 'FacebookCore'
+# pod 'FacebookLogin'
+# pod 'FacebookShare'
+ # Pods for Keyboard.
+ pod 'IQKeyboardManagerSwift'
+ # Pod for countryPicker.
+ pod 'CountryPickerView'
 
 end
