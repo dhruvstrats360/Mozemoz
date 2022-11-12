@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeNavController: UINavigationController {
+class LiveNavController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,10 +15,6 @@ class HomeNavController: UINavigationController {
 //        vc.modalPresentationStyle = .fullScreen
 //        performSegue(withIdentifier: "SignInPageViewController", sender: self)
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        let vc = UIViewController()
-//        vc.modalPresentationStyle = .fullScreen
-//        performSegue(withIdentifier: "SignInpopUpViewController1", sender: self)
-//    }
+
 
 }
