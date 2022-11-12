@@ -10,9 +10,11 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import GoogleUtilities
-import FacebookCore
-import FacebookShare
-import FacebookLogin
+//import FacebookCore
+//import FacebookShare
+//import FacebookLogin
+import IQKeyboardManagerSwift
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,12 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        // initiate Google Sign-In
-        
-        
+        IQKeyboardManager.shared.enable = true
         return true
     }
-    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -51,6 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // for google auth
             return GIDSignIn.sharedInstance.handle(url)
         }
+    }
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification notification: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+        if Auth.auth().canHandleNotification(notification) {
+            completionHandler(.noData)
+            return
+        }
+        // This notification is not auth related, developer should handle it.
     }
 }
 

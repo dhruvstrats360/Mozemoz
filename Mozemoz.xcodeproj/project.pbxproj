@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		8F2C3E382913CE4D006284DB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C3E372913CE4D006284DB /* DetailsViewController.swift */; };
 		8F2C3E3A2913D365006284DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C3E392913D365006284DB /* GoogleService-Info.plist */; };
 		8F2C3E5D2914DCA5006284DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C3E5C2914DCA5006284DB /* Main.storyboard */; };
+		8F6811F7291E7CF6000FA5F1 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 8F6811F6291E7CF6000FA5F1 /* CountryPickerView */; };
 		8F6E092828E16C8900AD5E11 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E092728E16C8900AD5E11 /* TabBarViewController.swift */; };
 		8F6E092A28E1B4B200AD5E11 /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E092928E1B4B200AD5E11 /* SignInPageViewController.swift */; };
 		8F6E092F28E1BA6100AD5E11 /* SignInNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E092E28E1BA6100AD5E11 /* SignInNavController.swift */; };
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6811F7291E7CF6000FA5F1 /* CountryPickerView in Frameworks */,
 				6CFF43BC6B6D781A0189DB34 /* Pods_Mozemoz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,9 +129,9 @@
 				8F2C3E5C2914DCA5006284DB /* Main.storyboard */,
 				8F6E092728E16C8900AD5E11 /* TabBarViewController.swift */,
 				8FC7C26A28E566C900B1657F /* NavController */,
+				8F6E094C28E41A1400AD5E11 /* HomePageVC */,
 				8F6E094128E316E100AD5E11 /* SearchVC */,
 				8FC7C26B28E566DB00B1657F /* SignIn VC */,
-				8F6E094C28E41A1400AD5E11 /* HomePageVC */,
 				8F72535E28DEF5890016E081 /* Assets.xcassets */,
 				8F72536028DEF5890016E081 /* LaunchScreen.storyboard */,
 				8F2C3E392913D365006284DB /* GoogleService-Info.plist */,
@@ -170,13 +172,17 @@
 				8F72534E28DEF5860016E081 /* Sources */,
 				8F72534F28DEF5860016E081 /* Frameworks */,
 				8F72535028DEF5860016E081 /* Resources */,
-				03C283948F72EE7FC4F61484 /* [CP] Embed Pods Frameworks */,
+				397B9F63DD2085BB2B5A32F9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8F6811F9291F68AD000FA5F1 /* PBXTargetDependency */,
 			);
 			name = Mozemoz;
+			packageProductDependencies = (
+				8F6811F6291E7CF6000FA5F1 /* CountryPickerView */,
+			);
 			productName = Mozemoz;
 			productReference = 8F66DEE7291E179A001DB3A7 /* Mozemoz.app */;
 			productType = "com.apple.product-type.application";
@@ -197,7 +203,7 @@
 				};
 			};
 			buildConfigurationList = 8F72534D28DEF5860016E081 /* Build configuration list for PBXProject "Mozemoz" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -205,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 8F72534928DEF5860016E081;
+			packageReferences = (
+				8F6811F5291E7CF6000FA5F1 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+			);
 			productRefGroup = 8F72534928DEF5860016E081;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,7 +238,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03C283948F72EE7FC4F61484 /* [CP] Embed Pods Frameworks */ = {
+		397B9F63DD2085BB2B5A32F9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,6 +305,13 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8F6811F9291F68AD000FA5F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 8F6811F8291F68AD000FA5F1 /* CountryPickerView */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		8F72536028DEF5890016E081 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -359,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -414,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -437,6 +453,7 @@
 				DEVELOPMENT_TEAM = 6LPX7239PT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mozemoz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mozemoz;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -444,7 +461,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,6 +489,7 @@
 				DEVELOPMENT_TEAM = 6LPX7239PT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mozemoz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mozemoz;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -479,7 +497,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,6 +534,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F6811F5291E7CF6000FA5F1 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F6811F6291E7CF6000FA5F1 /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F6811F5291E7CF6000FA5F1 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
+		};
+		8F6811F8291F68AD000FA5F1 /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F6811F5291E7CF6000FA5F1 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F72534A28DEF5860016E081 /* Project object */;
 }

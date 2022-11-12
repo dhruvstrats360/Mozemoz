@@ -9,13 +9,13 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import IQKeyboardManagerSwift
 
 class SignInPageViewController: UIViewController {
 
     
     @IBOutlet weak var appleBottomView: UIView!
     @IBOutlet weak var appleView: UIView!
-    @IBOutlet weak var btnExit: UIButton!
     @IBOutlet weak var googleBottomView: UIView!
     @IBOutlet weak var facebookBottomview: UIView!
     @IBOutlet weak var loginBottomView: UIView!
@@ -32,6 +32,8 @@ class SignInPageViewController: UIViewController {
         bottomViewEditing(view: facebookBottomview)
         bottomViewEditing(view: googleBottomView)
         bottomViewEditing(view: appleBottomView)
+       
+
     }
     func topViewediting(view: UIView){
         view.layer.cornerRadius = 25
