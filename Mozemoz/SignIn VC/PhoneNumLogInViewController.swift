@@ -10,7 +10,6 @@ import FirebaseAuth
 import FirebaseCore
 import CountryPickerView
 
-
 class PhoneNumLogInViewController: UIViewController {
     
     @IBOutlet weak var btnResendOTP: UIButton!
@@ -58,8 +57,10 @@ class PhoneNumLogInViewController: UIViewController {
                 print(country)
                 Auth.auth().settings?.isAppVerificationDisabledForTesting = false
                 PhoneAuthProvider.provider().verifyPhoneNumber(country, uiDelegate: nil, completion: { verificationID, error in
-                    if (error != nil){
-                        print(error.debugDescription)
+                    if let errors = error{
+                        print(errors.localizedDescription)
+                        self.poperror(error: errors.localizedDescription)
+
                     }else{
                         self.verification_id = verificationID
                         self.txtOTP.isHidden = false
@@ -68,6 +69,7 @@ class PhoneNumLogInViewController: UIViewController {
                 })
             }
             else {
+                self.poperror(error: "PLEASE ENTER VALID MOBILE NUMBER")
                 print("PLEASE ENTER VALID MOBILE NUMBER")
             }
         }
@@ -77,6 +79,7 @@ class PhoneNumLogInViewController: UIViewController {
                 Auth.auth().signIn(with: credentials, completion: { authData, error in
                     if (error != nil){
                         print(error.debugDescription)
+                        self.poperror(error: error.debugDescription)
                     }
                     else{
                         print("AUTHENTICATION SUCCESS WITH -" + (authData?.user.phoneNumber! ?? "NO PHONE NUMBER"))
@@ -84,11 +87,17 @@ class PhoneNumLogInViewController: UIViewController {
                     }
                 })
             } else{
+                
                 print("ERROR IN GETTING VERIFCATION ID")
             }
         }
     }
-    
+    func poperror(error: String){
+        let alert = UIAlertController(title: "\(error)", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true,completion: nil)
+    }
     func editbtn(btn: [UIButton]){
         for i in 0..<btn.count{
             btn[i].layer.masksToBounds = true
@@ -101,12 +110,15 @@ class PhoneNumLogInViewController: UIViewController {
             txt[i].layer.cornerRadius = 15
         }
     }
-    
     @IBAction func exitBtnPressed(_ sender: Any) {
-        dismiss(animated: true)
+        do{
+            try Auth.auth().signOut()
+            dismiss(animated: true)
+        }
+        catch{
+            print(error)
+        }
     }
-    
- 
     @IBAction func editBtnPressed(_ sender: Any) {
         checkPhonenumber()
     }
