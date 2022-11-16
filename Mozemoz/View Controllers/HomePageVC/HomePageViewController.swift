@@ -17,7 +17,8 @@ class HomePageViewController: UIViewController {
     let arrdistance = ["10 km","100 km", "1000 km","20 km", "200 km", "2000 km"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        showVideo_CollView.isPagingEnabled = true
+        showVideo_CollView.frame = .zero
     }
     func imageEditing(img: UIImageView){
         img.layer.masksToBounds = true

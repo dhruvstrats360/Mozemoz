@@ -20,10 +20,10 @@ class PhoneNumLogInViewController: UIViewController {
     @IBOutlet weak var txtOTP: UITextField!
     @IBOutlet weak var txtPhoneNum: UITextField!
     @IBOutlet weak var CountryPicker: CountryPickerView!
+    let tabbarVC = UITabBarController(nibName: "", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         txtOTP.isHidden = true
         lblNumCaution.isHidden = true
         lblOTPCaution.isHidden = true
@@ -51,6 +51,7 @@ class PhoneNumLogInViewController: UIViewController {
         editTxtField(txt: [txtOTP,txtPhoneNum])
     }
     @objc func doneButtonClicked() {
+      
         if (txtOTP.isHidden) {
             if !(txtPhoneNum.text!.isEmpty) {
                 let country = CountryPicker.selectedCountry.phoneCode + txtPhoneNum.text!
@@ -83,7 +84,9 @@ class PhoneNumLogInViewController: UIViewController {
                     }
                     else{
                         print("AUTHENTICATION SUCCESS WITH -" + (authData?.user.phoneNumber! ?? "NO PHONE NUMBER"))
-                        self.performSegue(withIdentifier: "Test", sender: self)
+                       
+                        self.tabbarVC.selectedIndex = 1
+
                     }
                 })
             } else{

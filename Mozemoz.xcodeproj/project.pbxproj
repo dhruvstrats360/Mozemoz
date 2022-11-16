@@ -129,9 +129,7 @@
 				8F2C3E5C2914DCA5006284DB /* Main.storyboard */,
 				8F6E092728E16C8900AD5E11 /* TabBarViewController.swift */,
 				8FC7C26A28E566C900B1657F /* NavController */,
-				8F6E094C28E41A1400AD5E11 /* HomePageVC */,
-				8F6E094128E316E100AD5E11 /* SearchVC */,
-				8FC7C26B28E566DB00B1657F /* SignIn VC */,
+				8FFA52BD292356CA00A1C12B /* View Controllers */,
 				8F72535E28DEF5890016E081 /* Assets.xcassets */,
 				8F72536028DEF5890016E081 /* LaunchScreen.storyboard */,
 				8F2C3E392913D365006284DB /* GoogleService-Info.plist */,
@@ -159,6 +157,16 @@
 				8F2C3E372913CE4D006284DB /* DetailsViewController.swift */,
 			);
 			path = "SignIn VC";
+			sourceTree = "<group>";
+		};
+		8FFA52BD292356CA00A1C12B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F6E094C28E41A1400AD5E11 /* HomePageVC */,
+				8F6E094128E316E100AD5E11 /* SearchVC */,
+				8FC7C26B28E566DB00B1657F /* SignIn VC */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
