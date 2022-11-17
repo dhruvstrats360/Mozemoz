@@ -7,18 +7,25 @@
 
 import UIKit
 
-class ProfileViewController: UITabBarController {
+class ProfileViewController: UIViewController {
 
     @IBOutlet weak var post_like_tabbar: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //addtabBar()
-        
         // Do any additional setup after loading the view.
-//        print(post_like_tabbar.selectedItem as Any)
-        print(post_like_tabbar.debugDescription)
+        guard storyboard?.instantiateViewController(withIdentifier: String(describing: ProfileViewController.self)) is ProfileViewController
+            else {
+            return
+        }
         
-       
+        print(post_like_tabbar.selectedItem.debugDescription)
+        print(post_like_tabbar.debugDescription)
+        let contacts = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.contacts, tag: 100)
+        let bookmarks = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.bookmarks, tag: 101)
+        
+         post_like_tabbar.setItems([contacts, bookmarks], animated: false)
+        
+
     }
     
     /*
