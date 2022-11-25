@@ -14,7 +14,11 @@ class SearchPageNavController: UINavigationController {
 
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("SearchPage Nav - View will appear")
+    }
+
 
     /*
     // MARK: - Navigation

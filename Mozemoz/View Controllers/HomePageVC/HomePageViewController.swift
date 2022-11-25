@@ -46,7 +46,6 @@ extension HomePageViewController: UICollectionViewDelegate, UICollectionViewData
         cell.imgBackground.image = arrOfimages[indexPath.row]
         cell.imgSong.image = UIImage(named: "LOGO")
         cell.imgProfileimg.image = UIImage(named: "professional - tina")
-        
         imageEditing(img: cell.imgSong)
         imageEditing(img: cell.imgProfileimg)
         editBTns(arrbtn: [cell.btnLike,cell.btnShare,cell.btnFollow,cell.btnMessages])

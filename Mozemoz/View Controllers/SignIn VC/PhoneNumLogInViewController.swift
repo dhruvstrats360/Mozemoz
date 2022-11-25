@@ -13,22 +13,16 @@ import CountryPickerView
 class PhoneNumLogInViewController: UIViewController {
     
     @IBOutlet weak var btnResendOTP: UIButton!
-    @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var btnExit: UIButton!
-    @IBOutlet weak var lblNumCaution: UILabel!
-    @IBOutlet weak var lblOTPCaution: UILabel!
+  
     @IBOutlet weak var txtOTP: UITextField!
     @IBOutlet weak var txtPhoneNum: UITextField!
     @IBOutlet weak var CountryPicker: CountryPickerView!
     let tabbarVC = UITabBarController(nibName: "", bundle: nil)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         txtOTP.isHidden = true
-        lblNumCaution.isHidden = true
-        lblOTPCaution.isHidden = true
         btnResendOTP.isHidden = true
-        btnEdit.isHidden = true
         // keyboard action
         keyboardTargets()
         // country picker
@@ -47,11 +41,10 @@ class PhoneNumLogInViewController: UIViewController {
         txtOTP.addDoneOnKeyboardWithTarget(self, action: #selector(doneButtonClicked))
     }
     func editbtn(){
-        editbtn(btn: [btnEdit,btnExit,btnResendOTP])
+        editbtn(btn: [btnExit,btnResendOTP])
         editTxtField(txt: [txtOTP,txtPhoneNum])
     }
     @objc func doneButtonClicked() {
-      
         if (txtOTP.isHidden) {
             if !(txtPhoneNum.text!.isEmpty) {
                 let country = CountryPicker.selectedCountry.phoneCode + txtPhoneNum.text!
@@ -65,7 +58,6 @@ class PhoneNumLogInViewController: UIViewController {
                     }else{
                         self.verification_id = verificationID
                         self.txtOTP.isHidden = false
-                        self.btnEdit.isHidden = false
                     }
                 })
             }
@@ -84,13 +76,11 @@ class PhoneNumLogInViewController: UIViewController {
                     }
                     else{
                         print("AUTHENTICATION SUCCESS WITH -" + (authData?.user.phoneNumber! ?? "NO PHONE NUMBER"))
-                       
-                        self.tabbarVC.selectedIndex = 1
-
+                        
+                        self.navigationController?.popToRootViewController(animated: true)
                     }
                 })
             } else{
-                
                 print("ERROR IN GETTING VERIFCATION ID")
             }
         }
@@ -114,41 +104,13 @@ class PhoneNumLogInViewController: UIViewController {
         }
     }
     @IBAction func exitBtnPressed(_ sender: Any) {
-        do{
-            try Auth.auth().signOut()
-            dismiss(animated: true)
-        }
-        catch{
-            print(error)
-        }
+        dismiss(animated: true)
     }
-    @IBAction func editBtnPressed(_ sender: Any) {
-        checkPhonenumber()
-    }
-    
     @IBAction func resendBtnPressed(_ sender: UIButton) {
         txtOTP.isHidden = true
         btnResendOTP.isHidden = true
     }
     var verification_id: String? = nil
     // check phone number
-    
-    func checkPhonenumber(){
-        if txtPhoneNum.text!.count < 10 {
-            lblNumCaution.text = "India has 10 Digits number System"
-            lblNumCaution.isHidden = false
-        }
-        else if txtPhoneNum.text!.count > 10{
-            lblNumCaution.text = "Number should be equal to 10"
-            lblNumCaution.isHidden = false
-        }
-        else{
-            lblNumCaution.isHidden = true
-            btnEdit.isHidden = false
-            btnResendOTP.isHidden = false
-            txtPhoneNum.endEditing(true)
-            txtPhoneNum.resignFirstResponder()
-        }
     }
-}
 

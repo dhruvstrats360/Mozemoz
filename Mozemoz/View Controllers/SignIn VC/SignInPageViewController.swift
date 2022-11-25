@@ -23,7 +23,7 @@ class SignInPageViewController: UIViewController {
     @IBOutlet weak var LoginView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        desion()
+        navigationItem.titleView?.isHidden = true
         topViewediting(view: LoginView)
         topViewediting(view: facebookView)
         topViewediting(view: googleView)
@@ -34,11 +34,14 @@ class SignInPageViewController: UIViewController {
         bottomViewEditing(view: appleBottomView)
        
     }
-    func desion(){
-        print("\(String(describing: Auth.auth().currentUser?.isAnonymous))Auth")
-        if !((Auth.auth().currentUser?.isAnonymous) != nil){
-            tabBarController?.selectedIndex = 1
-            navigationController?.pushViewController(DetailsViewController(), animated: true)
+    override var viewIfLoaded: UIView?{
+        decesion()
+        return view
+    }
+    func decesion(){
+        print("\(String(describing: Auth.auth().currentUser?.isAnonymous)) Auth")
+        if ((Auth.auth().currentUser?.isAnonymous) != nil){
+            navigationController?.popToViewController(ProfileViewController(), animated: true)
         }
     }
     func topViewediting(view: UIView){
@@ -48,9 +51,15 @@ class SignInPageViewController: UIViewController {
     func bottomViewEditing(view: UIView){
         view.layer.cornerRadius = 25
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        
         view.layer.borderWidth = 0.1
-        
+    }
+    
+    // MARK: Phone Number Sign In
+    
+    @IBAction func phoneLogInPressed(_ sender: UIButton) {
+        if let newVC = tabBarController?.storyboard?.instantiateViewController(withIdentifier: "PhoneNumLogInViewController") {
+            navigationController?.pushViewController(newVC, animated: true)
+        }
     }
     // MARK: Google Signin
     @IBAction func googleSignIn_intiate(_ sender: UIButton) {
