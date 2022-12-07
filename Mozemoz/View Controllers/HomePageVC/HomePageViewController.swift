@@ -17,7 +17,8 @@ class HomePageViewController: UIViewController {
     let arrdistance = ["10 km","100 km", "1000 km","20 km", "200 km", "2000 km"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        showVideo_CollView.isPagingEnabled = true
+        showVideo_CollView.frame = .zero
     }
     func imageEditing(img: UIImageView){
         img.layer.masksToBounds = true
@@ -45,7 +46,6 @@ extension HomePageViewController: UICollectionViewDelegate, UICollectionViewData
         cell.imgBackground.image = arrOfimages[indexPath.row]
         cell.imgSong.image = UIImage(named: "LOGO")
         cell.imgProfileimg.image = UIImage(named: "professional - tina")
-        
         imageEditing(img: cell.imgSong)
         imageEditing(img: cell.imgProfileimg)
         editBTns(arrbtn: [cell.btnLike,cell.btnShare,cell.btnFollow,cell.btnMessages])

@@ -10,26 +10,19 @@ import FirebaseAuth
 import FirebaseCore
 import CountryPickerView
 
-
 class PhoneNumLogInViewController: UIViewController {
     
     @IBOutlet weak var btnResendOTP: UIButton!
-    @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var btnExit: UIButton!
-    @IBOutlet weak var lblNumCaution: UILabel!
-    @IBOutlet weak var lblOTPCaution: UILabel!
+  
     @IBOutlet weak var txtOTP: UITextField!
     @IBOutlet weak var txtPhoneNum: UITextField!
     @IBOutlet weak var CountryPicker: CountryPickerView!
-    
+    let tabbarVC = UITabBarController(nibName: "", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         txtOTP.isHidden = true
-        lblNumCaution.isHidden = true
-        lblOTPCaution.isHidden = true
         btnResendOTP.isHidden = true
-        btnEdit.isHidden = true
         // keyboard action
         keyboardTargets()
         // country picker
@@ -48,7 +41,7 @@ class PhoneNumLogInViewController: UIViewController {
         txtOTP.addDoneOnKeyboardWithTarget(self, action: #selector(doneButtonClicked))
     }
     func editbtn(){
-        editbtn(btn: [btnEdit,btnExit,btnResendOTP])
+        editbtn(btn: [btnExit,btnResendOTP])
         editTxtField(txt: [txtOTP,txtPhoneNum])
     }
     @objc func doneButtonClicked() {
@@ -58,16 +51,18 @@ class PhoneNumLogInViewController: UIViewController {
                 print(country)
                 Auth.auth().settings?.isAppVerificationDisabledForTesting = false
                 PhoneAuthProvider.provider().verifyPhoneNumber(country, uiDelegate: nil, completion: { verificationID, error in
-                    if (error != nil){
-                        print(error.debugDescription)
+                    if let errors = error{
+                        print(errors.localizedDescription)
+                        self.poperror(error: errors.localizedDescription)
+
                     }else{
                         self.verification_id = verificationID
                         self.txtOTP.isHidden = false
-                        self.btnEdit.isHidden = false
                     }
                 })
             }
             else {
+                self.poperror(error: "PLEASE ENTER VALID MOBILE NUMBER")
                 print("PLEASE ENTER VALID MOBILE NUMBER")
             }
         }
@@ -77,10 +72,12 @@ class PhoneNumLogInViewController: UIViewController {
                 Auth.auth().signIn(with: credentials, completion: { authData, error in
                     if (error != nil){
                         print(error.debugDescription)
+                        self.poperror(error: error.debugDescription)
                     }
                     else{
                         print("AUTHENTICATION SUCCESS WITH -" + (authData?.user.phoneNumber! ?? "NO PHONE NUMBER"))
-                        self.performSegue(withIdentifier: "Test", sender: self)
+                        
+                        self.navigationController?.popToRootViewController(animated: true)
                     }
                 })
             } else{
@@ -88,7 +85,12 @@ class PhoneNumLogInViewController: UIViewController {
             }
         }
     }
-    
+    func poperror(error: String){
+        let alert = UIAlertController(title: "\(error)", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true,completion: nil)
+    }
     func editbtn(btn: [UIButton]){
         for i in 0..<btn.count{
             btn[i].layer.masksToBounds = true
@@ -101,39 +103,14 @@ class PhoneNumLogInViewController: UIViewController {
             txt[i].layer.cornerRadius = 15
         }
     }
-    
     @IBAction func exitBtnPressed(_ sender: Any) {
         dismiss(animated: true)
     }
-    
- 
-    @IBAction func editBtnPressed(_ sender: Any) {
-        checkPhonenumber()
-    }
-    
     @IBAction func resendBtnPressed(_ sender: UIButton) {
         txtOTP.isHidden = true
         btnResendOTP.isHidden = true
     }
     var verification_id: String? = nil
     // check phone number
-    
-    func checkPhonenumber(){
-        if txtPhoneNum.text!.count < 10 {
-            lblNumCaution.text = "India has 10 Digits number System"
-            lblNumCaution.isHidden = false
-        }
-        else if txtPhoneNum.text!.count > 10{
-            lblNumCaution.text = "Number should be equal to 10"
-            lblNumCaution.isHidden = false
-        }
-        else{
-            lblNumCaution.isHidden = true
-            btnEdit.isHidden = false
-            btnResendOTP.isHidden = false
-            txtPhoneNum.endEditing(true)
-            txtPhoneNum.resignFirstResponder()
-        }
     }
-}
 

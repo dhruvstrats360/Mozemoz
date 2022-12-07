@@ -28,7 +28,11 @@
 		8F72535828DEF5860016E081 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72535728DEF5860016E081 /* SceneDelegate.swift */; };
 		8F72535F28DEF5890016E081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F72535E28DEF5890016E081 /* Assets.xcassets */; };
 		8F72536228DEF5890016E081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F72536028DEF5890016E081 /* LaunchScreen.storyboard */; };
+		8FB178DC2926556A002A984C /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB178DB2926556A002A984C /* ProfileCollectionViewCell.swift */; };
+		8FB17900292F3CDE002A984C /* SigningInNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB178FF292F3CDD002A984C /* SigningInNavViewController.swift */; };
+		8FB17902292F3CE6002A984C /* LoggedInNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB17901292F3CE6002A984C /* LoggedInNavViewController.swift */; };
 		8FC7C26D28E56A8300B1657F /* PhoneNumLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC7C26C28E56A8300B1657F /* PhoneNumLogInViewController.swift */; };
+		8FFA52BF2926026500A1C12B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA52BE2926026500A1C12B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +58,12 @@
 		8F72535E28DEF5890016E081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F72536128DEF5890016E081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F72536328DEF5890016E081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FB178DB2926556A002A984C /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FB178FF292F3CDD002A984C /* SigningInNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningInNavViewController.swift; sourceTree = "<group>"; };
+		8FB17901292F3CE6002A984C /* LoggedInNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInNavViewController.swift; sourceTree = "<group>"; };
 		8FC7C26C28E56A8300B1657F /* PhoneNumLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumLogInViewController.swift; sourceTree = "<group>"; };
 		8FDC95A129124AA500183D7D /* Mozemoz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mozemoz.entitlements; sourceTree = "<group>"; };
+		8FFA52BE2926026500A1C12B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AF2EEFC4E841723D8615103C /* Pods-Mozemoz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mozemoz.release.xcconfig"; path = "Target Support Files/Pods-Mozemoz/Pods-Mozemoz.release.xcconfig"; sourceTree = "<group>"; };
 		B33699A2D73F19BDB3BD7E10 /* Pods-Mozemoz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mozemoz.debug.xcconfig"; path = "Target Support Files/Pods-Mozemoz/Pods-Mozemoz.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,9 +137,7 @@
 				8F2C3E5C2914DCA5006284DB /* Main.storyboard */,
 				8F6E092728E16C8900AD5E11 /* TabBarViewController.swift */,
 				8FC7C26A28E566C900B1657F /* NavController */,
-				8F6E094C28E41A1400AD5E11 /* HomePageVC */,
-				8F6E094128E316E100AD5E11 /* SearchVC */,
-				8FC7C26B28E566DB00B1657F /* SignIn VC */,
+				8FFA52BD292356CA00A1C12B /* View Controllers */,
 				8F72535E28DEF5890016E081 /* Assets.xcassets */,
 				8F72536028DEF5890016E081 /* LaunchScreen.storyboard */,
 				8F2C3E392913D365006284DB /* GoogleService-Info.plist */,
@@ -147,6 +153,8 @@
 				8F6E094828E4124E00AD5E11 /* SearchPageNavController.swift */,
 				8F6E093028E1BB5D00AD5E11 /* LiveNavController.swift */,
 				8F6E092E28E1BA6100AD5E11 /* SignInNavController.swift */,
+				8FB178FF292F3CDD002A984C /* SigningInNavViewController.swift */,
+				8FB17901292F3CE6002A984C /* LoggedInNavViewController.swift */,
 			);
 			path = NavController;
 			sourceTree = "<group>";
@@ -159,6 +167,26 @@
 				8F2C3E372913CE4D006284DB /* DetailsViewController.swift */,
 			);
 			path = "SignIn VC";
+			sourceTree = "<group>";
+		};
+		8FFA52BD292356CA00A1C12B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F6E094C28E41A1400AD5E11 /* HomePageVC */,
+				8F6E094128E316E100AD5E11 /* SearchVC */,
+				8FC7C26B28E566DB00B1657F /* SignIn VC */,
+				8FFA52C02926027800A1C12B /* Profile VC */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8FFA52C02926027800A1C12B /* Profile VC */ = {
+			isa = PBXGroup;
+			children = (
+				8FFA52BE2926026500A1C12B /* ProfileViewController.swift */,
+				8FB178DB2926556A002A984C /* ProfileCollectionViewCell.swift */,
+			);
+			path = "Profile VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,14 +319,18 @@
 				8F6E095628E423EC00AD5E11 /* HomePageCollectionViewCell.swift in Sources */,
 				8F72535628DEF5860016E081 /* AppDelegate.swift in Sources */,
 				8F6E093E28E316B000AD5E11 /* SearchPageViewController.swift in Sources */,
+				8FFA52BF2926026500A1C12B /* ProfileViewController.swift in Sources */,
 				8F6E094328E3173900AD5E11 /* SearchPageCollectionViewCell.swift in Sources */,
 				8F6E092A28E1B4B200AD5E11 /* SignInPageViewController.swift in Sources */,
+				8FB178DC2926556A002A984C /* ProfileCollectionViewCell.swift in Sources */,
+				8FB17900292F3CDE002A984C /* SigningInNavViewController.swift in Sources */,
 				8F2C3E382913CE4D006284DB /* DetailsViewController.swift in Sources */,
 				8F6E095428E41D6E00AD5E11 /* HomePageViewController.swift in Sources */,
 				8F6E092F28E1BA6100AD5E11 /* SignInNavController.swift in Sources */,
 				8F72535828DEF5860016E081 /* SceneDelegate.swift in Sources */,
 				8FC7C26D28E56A8300B1657F /* PhoneNumLogInViewController.swift in Sources */,
 				8F6E094528E31BBB00AD5E11 /* CollectionViewCell.swift in Sources */,
+				8FB17902292F3CE6002A984C /* LoggedInNavViewController.swift in Sources */,
 				8F6E095828E4354600AD5E11 /* HomePageNavController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -430,7 +462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

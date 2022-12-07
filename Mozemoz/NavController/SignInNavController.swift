@@ -6,15 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInNavController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        performSegue(withIdentifier: "SignInpopUpViewController", sender: self)
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        performSegue(withIdentifier: "SignInpopUpViewController", sender: self)
-//    }
-    
 }
